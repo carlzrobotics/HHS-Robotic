@@ -31,6 +31,7 @@ public class main extends LinearOpMode {
             gamepader();
         }
     }
+    
     //gamepad input
     public void gamepader(){
         if (Math.abs(gamepad1.right_stick_y) > Math.abs(gamepad1.right_stick_x)) {
