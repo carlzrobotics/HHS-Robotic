@@ -15,6 +15,9 @@ public class movement {
     public DcMotor Motor2;
     public DcMotor Motor3;
     public DcMotor Motor4;
+    
+    // Empty constructor
+    public movement();
 
     public movement(ArrayList<DcMotor> motors) {
         Motor1 = motors.get(0);
