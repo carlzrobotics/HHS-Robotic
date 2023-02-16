@@ -80,7 +80,7 @@ public class main extends LinearOpMode {
             movement.stop();
         }
         */
-        if (gamepad1.left_stick_x == gamepad1.left_stick_y){
+        if (gamepad1.left_stick_x == gamepad1.left_stick_y || Math.abs(gamepad1.left_stick_x)<0.05||Math.abs(gamepad1.left_stick_y)<0.05){
             movement.stop();
         }else{
             movement.verticalMovement(gamepad1.left_stick_y);
