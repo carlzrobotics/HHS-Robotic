@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import java.util.ArrayList;
 
@@ -33,13 +34,15 @@ public class movement {
 
     //vertical movement
     public void verticalMovement(float power){
+        power = (float) (power * 0.5);
         Motor1.setPower(power * 1);
         Motor2.setPower(power * 1);
-        Motor3.setPower(power * -1);
-        Motor4.setPower(power * -1);
+        Motor3.setPower(power *1);
+        Motor4.setPower(power * 1);
     }
     //horizontal movement
     public void horizontalMovement(float power){
+        power = (float) (power * 0.5);
         Motor1.setPower(power * -1);
         Motor2.setPower(power * 1);
         Motor3.setPower(power * -1);
