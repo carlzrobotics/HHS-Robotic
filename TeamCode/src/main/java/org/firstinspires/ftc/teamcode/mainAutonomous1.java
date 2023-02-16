@@ -1,16 +1,15 @@
 package org.firstinspires.ftc.teamcode;
 
-
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import java.util.ArrayList;
 
 
-@TeleOp(name = "donga")
+@Autonomous(name = "donga-auto1")
 
-public class main extends LinearOpMode {
+public class mainAutonomous1 extends LinearOpMode {
     movement movement = null;
 //    movement movement = new movement(hardwareMap.get(DcMotor.class, "Motor1"),hardwareMap.get(DcMotor.class, "Motor2"),hardwareMap.get(DcMotor.class, "Motor3"),hardwareMap.get(DcMotor.class, "Motor4"));
 
@@ -39,7 +38,7 @@ public class main extends LinearOpMode {
         movement_motors.add(motor2);
         movement_motors.add(motor3);
         movement_motors.add(motor4);
-        
+
         movement = new movement(movement_motors);
 
         //initialize motors
@@ -55,28 +54,13 @@ public class main extends LinearOpMode {
 
         waitForStart();
 
+        if(opModeIsActive()){
+
+        }
+
         while (opModeIsActive()){
-            gamepader();
+
         }
-    }
-    //gamepad input
-    public void gamepader(){
-        if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {
-            movement.verticalMovement(gamepad1.left_stick_y);
-        } else if (Math.abs(gamepad1.left_stick_x) < Math.abs(gamepad1.left_stick_y)) {
-            movement.horizontalMovement(gamepad1.left_stick_x);
-        } else if(gamepad1.left_stick_x == gamepad1.left_stick_y){
-            movement.stop();
-        }
-        if(Math.abs(gamepad1.right_stick_x) > 0){
-            movement.rotateMovement(gamepad1.right_stick_x);
-        }
-        if(gamepad1.circle){
-            ARM.armMove(1);
-        }else if(gamepad1.cross){
-            ARM.armExtend(1);
-        }
-        logger();
     }
     public void logger(){
         telemetry.addData("LeftY", gamepad1.left_stick_y);
