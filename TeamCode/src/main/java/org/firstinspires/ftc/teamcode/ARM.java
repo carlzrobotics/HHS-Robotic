@@ -15,7 +15,7 @@ public class ARM {
         Motor6.setPower(power*0.7);
     }
     public void armExtend(float power){
-        Motor7.setPower(power*0.7);
+        Motor7.setPower(power*-0.5);
     }
 
 }
