@@ -75,40 +75,44 @@ public class mainer extends LinearOpMode {
         }
 
         if(gamepad1.dpad_up){
-            Motor7.setPower(-1);
+            Motor7.setPower(-0.7);
         }else if(gamepad1.dpad_down){
-            Motor7.setPower(1);
+            Motor7.setPower(0.7);
+        }else{
+            Motor7.setPower(0);
         }
-        Motor7.setPower(0);
 
         if(gamepad1.triangle){
-            tiltangle = tiltangle -0.01;
+            tiltangle = tiltangle -0.001;
             Servo3.setPosition(tiltangle);
         }else if(gamepad1.cross){
-            tiltangle = tiltangle +0.01;
+            tiltangle = tiltangle +0.001;
             Servo3.setPosition(tiltangle);
         }
-        if (gamepad1.left_bumper){
-            Motor5.setPower(-0.7);
-            Motor6.setPower(0.7);
-        } else if(gamepad1.right_bumper){
-            Motor5.setPower(0.7);
-            Motor6.setPower(-0.7);
-        }
-        Motor5.setPower(0);
-        Motor6.setPower(0);
 
+        if (gamepad1.left_bumper){
+            Motor5.setPower(-0.4);
+            Motor6.setPower(0.4);
+        } else if(gamepad1.right_bumper){
+            Motor5.setPower(0.4);
+            Motor6.setPower(-0.4);
+        }else {
+            Motor5.setPower(0);
+            Motor6.setPower(0);
+        }
         logger();
     }
     public void movementmethod1(){
-        float power = gamepad1.left_stick_y;
+        float power;
         if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {
+            power = gamepad1.left_stick_x;
             power = (float) (power * 0.5);
-            Motor1.setPower(power * 1);
+            Motor1.setPower(power * -1);
             Motor2.setPower(power * 1);
-            Motor3.setPower(power *1);
-            Motor4.setPower(power * 1);
+            Motor3.setPower(power * 1);
+            Motor4.setPower(power * -1);
         } else if (Math.abs(gamepad1.left_stick_x) < Math.abs(gamepad1.left_stick_y)) {
+            power = gamepad1.left_stick_y;
             power = (float) (power * 0.5);
             Motor1.setPower(power * -1);
             Motor2.setPower(power * 1);
@@ -119,19 +123,6 @@ public class mainer extends LinearOpMode {
             Motor2.setPower(0);
             Motor3.setPower(0);
             Motor4.setPower(0);
-        }
-    }
-    public void movementmethod2(){
-        if (gamepad1.left_stick_x == gamepad1.left_stick_y || Math.abs(gamepad1.left_stick_x)<0.05||Math.abs(gamepad1.left_stick_y)<0.05){
-            Motor1.setPower(0);
-            Motor2.setPower(0);
-            Motor3.setPower(0);
-            Motor4.setPower(0);
-        }else{
-            Motor1.setPower(gamepad1.left_stick_x * -1+gamepad1.left_stick_y);
-            Motor2.setPower(gamepad1.left_stick_x * 1+gamepad1.left_stick_y);
-            Motor3.setPower(gamepad1.left_stick_x * -1+gamepad1.left_stick_y*-1);
-            Motor4.setPower(gamepad1.left_stick_x * 1+gamepad1.left_stick_y*-1);
         }
     }
 
