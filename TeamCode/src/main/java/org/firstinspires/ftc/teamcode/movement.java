@@ -11,11 +11,11 @@ import java.util.ArrayList;
 //import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class movement {
-
-    public DcMotor Motor1;
-    public DcMotor Motor2;
-    public DcMotor Motor3;
-    public DcMotor Motor4;
+    m1 is front right, m2 front left, m3 back right, m4 back right
+    public DcMotor Motor1; // front right
+    public DcMotor Motor2; // front left
+    public DcMotor Motor3; // back left
+    public DcMotor Motor4; // back right
 
     public movement(ArrayList<DcMotor> motors) {
         Motor1 = motors.get(0);
@@ -26,35 +26,35 @@ public class movement {
 
     //stop movement
     public void stop(){
-        Motor1.setPower(0);
-        Motor2.setPower(0);
-        Motor3.setPower(0);
-        Motor4.setPower(0);
+        Motor1.setPower(0); // FR
+        Motor2.setPower(0); // FL
+        Motor3.setPower(0); // BL
+        Motor4.setPower(0); // BR
     }
 
     //vertical movement
     public void verticalMovement(float power){
         power = (float) (power * 0.5);
-        Motor1.setPower(power * 1);
-        Motor2.setPower(power * 1);
-        Motor3.setPower(power *1);
-        Motor4.setPower(power * 1);
+        Motor1.setPower(power * 1); // FR = 0.5
+        Motor2.setPower(power * 1); // FL = 0.5
+        Motor3.setPower(power * 1); // BL = 0.5
+        Motor4.setPower(power * 1); // BR = 0.5
     }
     //horizontal movement
     public void horizontalMovement(float power){
         power = (float) (power * 0.5);
-        Motor1.setPower(power * -1);
-        Motor2.setPower(power * 1);
-        Motor3.setPower(power * -1);
-        Motor4.setPower(power * 1);
+        Motor1.setPower(power * -1); // FR = -0.5
+        Motor2.setPower(power * 1); // FL = 0.5
+        Motor3.setPower(power * -1); // BL = -0.5
+        Motor4.setPower(power * 1); // BR = 0.5
     }
     //counter-clockwise rotation
     public void rotateMovement(float power){
         power = (float) (power * 0.5);
-        Motor1.setPower(power);
-        Motor2.setPower(power);
-        Motor3.setPower(power);
-        Motor4.setPower(power);
+        Motor1.setPower(power); // FR = 0.5
+        Motor2.setPower(power); // FL = 0.5
+        Motor3.setPower(power); // BL = 0.5
+        Motor4.setPower(power); // BR = 0.5
     }
     /*
     public void telmotor(){
